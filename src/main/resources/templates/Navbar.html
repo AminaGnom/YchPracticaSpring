@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<nav class="navbar navbar-expand navbar-light" style="background-color: #2147b6;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/67eb3d122192599.Y3JvcCwyNzYxLDIxNjAsNTQwLDA.png" alt="" width="80" height="50">
+    </a>
+    <a class="navbar-brand" href="/">Главная</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" aria-current="page" href="/staff/stf">Сотрудники</a>
+      <a class="nav-link" aria-current="page" href="/shoes/shs">Товары</a>
+      <a class="nav-link" aria-current="page" href="/branch/br">Филиалы</a>
+      <a class="nav-link" aria-current="page" href="/position/pst">Должности</a>
+      <a class="nav-link" aria-current="page" href="/availability">Наличие товара</a>
+      <a class="nav-link" href="/categories/cgt">Категории</a>
+      <a class="nav-link" href="/provider/prd">Поставщики</a>
+<!--      <a class="nav-link" href="/order/ord">Заказ</a>-->
+<!--      <a class="nav-link" href="/making_order/mord">Оформление заказа</a>-->
+      <a class="nav-link" href="/admin/admins">Пользователи</a>
+
+        <a  style="text-align:right"> <form style="text-align:right" th:action="@{/logout}" method="post">
+          <input style="text-align:right; background-color: black" type="submit"  class="btn btn-success ml-auto" value="Выйти"/>
+        </form>
+        </a>
+    </div>
+  </div>
+  </div>
+</nav>
+</body>
+</html>

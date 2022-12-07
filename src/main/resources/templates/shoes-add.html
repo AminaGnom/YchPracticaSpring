@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
+</head>
+<body>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>-->
+<div th:insert="Navbar"></div>
+<form th:action="${'/shoes/add'}" th:object="${shoes}" method="post">
+
+    <p>Бренд и наименование</p>
+    <input style="margin-left: 2px" type="text" th:field="*{brand}" name="brand">
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></div><br>
+
+    <p>Дата выпуска</p>
+    <input style="margin-left: 2px" type="date" th:field="*{releaseDate}" name="releaseDate" maxlength="8">
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}"></div><br>
+
+    <p>Новая коллекция:</p>
+    <input style="margin-left: 2px" type="checkbox" th:field="*{season}" name="season">
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('season')}" th:errors="*{season}"></div><br>
+
+    <p>Вес(в граммах)</p>
+    <input style="margin-left: 2px" type="number" th:field="*{weight}" name="weight" >
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></div><br>
+
+    <p>Стоимость</p>
+    <input style="margin-left: 2px" type="number" th:field="*{price}" name="price" >
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div><br>
+
+    <p>Артикул</p>
+    <select style="margin-left: 2px"  name="number">
+        <div th:each="element: ${articles}">
+            <option th:text="${element.number}"></option>
+        </div>
+    </select>
+<br>
+    <p>Поставщик</p>
+    <select style="margin-left: 2px" name="organization">
+        <div  th:each="element: ${providers}">
+           <option  th:text="${element.organization}"></option>
+        </div>
+    </select>
+
+    <p>Категория</p>
+    <select style="margin-left: 2px" name="type">
+        <div  th:each="element: ${categories}">
+            <option  th:text="${element.type}"></option>
+        </div>
+    </select>
+
+    <br>
+    <button style="margin-top: 5px; margin-left: 2px; background: #FFA500" class="btn btn-del" type="submit">Добавить обувь</button>
+</form>
+</body>
+</html>

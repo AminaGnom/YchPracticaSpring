@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактирование ролей</title>
+</head>
+<body>
+<div th:insert="Navbar"></div>
+<form th:action = "@{/admin/{id}/update(id=${user.id})}" method="post" th:object="${user}">
+  <div>
+    <input type="text" th:value="${user.username}" name="username">
+  </div>
+  <div th:each="role : ${role}">
+    <input type="checkbox" th:id="${role}"
+           th:name="${'roles[]'}" th:value="${role}"
+           th:checked="${#lists.contains(user.roles,role)}">
+
+    <label th:text="${role}"></label>
+  </div>
+  <button class="btn btn-del" style="background-color: darkorange" type="submit">Изменить пользователя</button>
+</form>
+<a class="btn btn-del" style="background-color: darkorange; margin: 3px;" th:href="'/admin/admins'">Назад</a>
+</body>
+</html>

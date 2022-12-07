@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Роль</title>
+</head>
+<body>
+<div th:insert="Navbar"></div>
+<h3 style="color: black" th:text="'Пользователь : ' + ${user.username}"></h3>
+<h4 style="color: black" th:text="'Роли : ' + ${user.roles}"></h4>
+<a th:href="'/admin/' + ${user.id} + '/update'"
+   class="btn btn-del" style="background-color: darkorange">Редактировать</a>
+<a href="/admin/admins" class="btn btn-del" style="background-color: darkorange">Назад</a>
+</body>
+</html>

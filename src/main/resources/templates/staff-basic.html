@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<div th:insert="Navbar"></div>
+<h1 style="text-align: center">Все сотрудники</h1>
+<a href="/staff/filter">Поиск сотрудника</a>
+<a href="/staff/add">Добавить сотрудника</a>
+<div th:each="el : ${staff}">
+    <hr>
+    <p style="text-align: center">ФИО сотрудника</p>
+    <a th:href="'/staff/' + ${el.id} + '/edit'"><h3 th:text="${el.fio}" style="text-align: center"></h3></a>
+    <p style="text-align: center">Заработная плата:</p>
+    <p th:text="${el.wages}" style="text-align: center"></p>
+    <hr>
+</div>
+<div th:each="el : ${staff}">
+    <tr>
+        <td><h3 style="color:#FFFFFF" th:text="${el.getFio()}"></h3></td>
+        <td><a style="color: #FFFFFF"  th:href="'/staff/' + ${el.id} + '/edit'">Подробнее</a></td>
+    </tr>
+</div>
+</body>
+</html>

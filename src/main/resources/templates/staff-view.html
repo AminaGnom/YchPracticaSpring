@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="Navbar"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<form th:action = "@{/staff/{id}/edit(id=${staff.id})}" method="post" th:object="${staff}">
+
+
+    <p style="margin: 3px">ФИО</p>
+    <input type="text"  th:field="*{fio}" th:value="${staff.getFio()}" style=" margin-bottom: 2px; margin-left: 2px" name="fio" >
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('fio')}" th:errors="*{fio}"></div><br>
+    <p style="margin-top: 10px">Дата рождения</p>
+    <input type="date" th:field="*{birth}" th:value="${staff.getBirth()}" style=" margin-bottom: 2px; margin-left: 2px">
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}"></div><br>
+
+    <p style="margin-top: 2px">Опыт работы</p>
+    <input type="text" th:value="${staff.getWork()}"  style=" margin-bottom: 2px; margin-left: 2px" name="work">
+    <div th:if="${#fields.hasErrors('work')}"></div><br>
+
+    <p style="margin-top: 2px">Заработная плата</p>
+    <input type="text" th:field="*{wages}" th:value="${staff.getWages()}" style=" margin-bottom: 4px; margin-left: 2px"  name="wages" >
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('wages')}" th:errors="*{wages}"></div><br>
+
+    <p style="margin-top: 2px">Банковский номер</p>
+    <input type="text" th:field="*{bank}" th:value="${staff.getBank()}"  style="margin-left: 2px"  name="bank"  maxlength="20" >
+    <div style="color: #FF2B2B" th:if="${#fields.hasErrors('bank')}" th:errors="*{bank}"></div><br>
+
+    <button style="background: #FFA500; margin-top: 7px; margin-left: 2px" type="submit" class="btn btn-del">Редактировать данные</button>
+</form>
+<div th:each="el : ${staff}">
+    <form th:action="'/staff/' + ${el.id} + '/remove'" method="post">
+        <button style="background: #FFA500; margin-top: 7px; margin-left: 2px" type="submit" class="btn btn-del">Удалить</button>
+    </form>
+</div>
+</body>
+</html>

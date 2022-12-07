@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Роли</title>
+</head>
+<body>
+<div th:insert="Navbar"></div>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th align="center" style="color: black">Логин</th>
+      <th style="color: black" align="center">Роли</th>
+    </tr>
+    <tr style="margin-top: 2px" th:each="el : ${users}">
+      <td style="color: black" th:text="${el.username}"></td>
+      <td>
+        <div th:each="role : ${el.roles}">
+          <p style="color: black" th:text="${role}"></p>
+        </div>
+      </td>
+      <td>
+        <a class="btn btn-primary"
+           th:href="'/admin/'+${el.id}">Редактировать пользователя</a>
+     <!--   <a th:href="'/admin/'+${el.id}"><h3 th:text="${el.username}"></h3></a>-->
+      </td>
+    </tr>
+  </table>
+  <a href="/registration" style="background-color: darkorange" class="btn btn-del">Добавить пользователь</a>
+</div>
+
+</body>
+</html>

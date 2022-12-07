@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<div th:insert="Navbar"></div>
+<form method="post" th:action="${'/staff/filter/result'}">
+  <input style="margin-top: 4px; margin-left: 200px; height: 35px; width: 1000px "  type="text" name="fio">
+  <button style="margin-left: 1px; margin-bottom: 3px; background: #FFA500; height: 35px" type="submit" class="btn btn-del">Найти</button>
+  <div th:each="el : ${result}">
+    <hr>
+    <h3 style="margin-top: 2px; text-align: center" th:text="${el.getFio}"></h3>
+    <p style="text-align: center">Дата рождения</p>
+    <p style="text-align: center"><b th:text="${el.getBirth}"></b></p>
+    <p style="text-align: center">Банковский номер</p>
+    <p style="text-align: center"><b th:text="${el.getBank}"></b></p>
+    <p style="text-align: center">Опыт работы</p>
+    <p style="text-align: center"><b th:text="${el.getWork}"></b></p>
+    <p style="text-align: center">Заработная плата</p>
+    <p style="text-align: center"><b th:text="${el.getWages}"></b></p>
+    <hr>
+  </div>
+</form>
+</body>
+</html>

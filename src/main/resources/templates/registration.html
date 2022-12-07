@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+ </div> <title >Регистрация</title>
+</head>
+<body>
+<div th:insert="Navbar"></div>
+<div th:if="${#messages}">
+  <p th:text="${message}"></p>
+</div >
+<div align="center" style="margin-bottom: 5px">
+Регистрация нового пользователя
+</div>
+<form th:action="@{/registration}" method="post">
+  <div align="center"><label align="center"> Логин : <input type="text" style="text-align: center;margin-bottom: 20px" size="25" name="username"/> </label></div>
+  <div align="center"><label align="center"> Пароль: <input type="password" style="text-align: center;margin-bottom: 20px" size="25"  name="password"/> </label></div>
+  <div align="center"><input align="center" style="color: #000000; background: #FFA500; height: 30px;width: 150px; margin-top: 5px; margin-bottom: 3px" type ="submit" class="btn btn-del"  value="Вход"/></div>
+</form>
+</body>
+</html>
